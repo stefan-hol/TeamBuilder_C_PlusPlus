@@ -1,2 +1,2 @@
-# TeamBuilder_C_PlusPlus
- I made a TeamBuilder In C++
+# Welcome By InaZuMa!
+InaZuma is a football teambuilder aplication where you can make your own teams and players. Another feature is edit where you can switch players between teams or delete teams/players. InaZuMa is my first experience in C++ and I learned a lot because of it. A couple of things I learned was working with Vectors, Code Structure, Swich Cases, Pointers ,Index building and how to handle wrong input. And it all started as a small school project but grew out to a passion project real quick.

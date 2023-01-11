@@ -1,5 +1,4 @@
 #include "FootballFrontierInternational.h"
-#include <vector>
 FootballFrontierInternational::FootballFrontierInternational() {
 	MakeTeam("Overig");
 }

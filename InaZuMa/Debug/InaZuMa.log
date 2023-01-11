@@ -1,2 +1,5 @@
-﻿  InaZuMa.cpp
+﻿  FootballFrontierInternational.cpp
+C:\Users\stefa\source\repos\InaZuMa\TeamBuilder_C_PlusPlus\InaZuMa\FootballFrontierInternational.cpp(49,12): warning C4018: '<': signed/unsigned mismatch
+  InaZuMa.cpp
+  Generating Code...
   InaZuMa.vcxproj -> C:\Users\stefa\source\repos\InaZuMa\TeamBuilder_C_PlusPlus\Debug\InaZuMa.exe
