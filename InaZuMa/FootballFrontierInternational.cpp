@@ -24,12 +24,19 @@ void FootballFrontierInternational::DeleteTeam(Team* team) {
 	TeamIndexCounter();
 }
 
-Team* FootballFrontierInternational::GetTeam(bool _choose, int i){
-	i = 0;
-	if (_choose == true) 
+Team* FootballFrontierInternational::GetTeam(std::string _choose, int i){
+	if (_choose != "")
 	{
+		for (Team* team : teams)
+		{
+			if(team->GetName() == _choose) return teams[team->GetIndex()];
+		}
+		return teams[0];
+	}
+	else {
+		int i = 0;
 		std::cout << "the teams:\n";
-		for (Team* team : teams) 
+		for (Team* team : teams)
 		{
 			std::cout << team->GetName() << " " << team->GetIndex() << "\n";
 			i += 1;
@@ -88,7 +95,7 @@ Team* FootballFrontierInternational::GetTeam(int retrievingIndex,bool _check) {
 	return teams[input];
 }
 
-void FootballFrontierInternational::MakePlayer(std::string _Name, int _Age, std::string _Position , bool _choose) {
+void FootballFrontierInternational::MakePlayer(std::string _Name, int _Age, std::string _Position , std::string _choose) {
 		Player* make = new Player();
 		make->SetName(_Name);
 		make->SetAge(_Age);

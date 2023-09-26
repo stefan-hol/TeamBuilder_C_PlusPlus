@@ -1,11 +1,28 @@
 #include "Handler.h"
 Handler::Handler() {
 	FFI = new FootballFrontierInternational();
-	FFI->MakeTeam("Zeus");
-	FFI->MakeTeam("Ocult");
-	FFI->MakeTeam("Wild");
-	FFI->MakePlayer("pieter", 20, "GK", false);
-	FFI->MakePlayer("bob", 20, "DF", false);
+
+	std::ifstream teams;
+	teams.open("TEAMS.txt");
+	while (teams) 
+	{
+		std::string team;
+		teams >> team;
+		if(team != "") FFI->MakeTeam(team);
+
+		std::ifstream players;
+		players.open(team + ".txt");
+		while (players)
+		{
+			std::string name, position;
+			int age;
+			players >> name >> age >> position;
+			if (name != "") {
+				FFI->MakePlayer(name, age, position, team);
+			}
+		}
+	}
+
 }
 Handler::~Handler() {
 }

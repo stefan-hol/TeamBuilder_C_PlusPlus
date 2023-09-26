@@ -4,6 +4,7 @@
 #include "Team.h"
 #include "FootballFrontierInternational.h"
 #include "MenuStates.h"
+#include <fstream>
 class Handler
 {
 private:
