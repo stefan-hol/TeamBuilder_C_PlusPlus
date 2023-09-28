@@ -40,6 +40,7 @@ int main()
 			case 4:
 			{
 				han.run = false;
+				han.GetFFI()->Save();
 				break;
 			}
 			default: 

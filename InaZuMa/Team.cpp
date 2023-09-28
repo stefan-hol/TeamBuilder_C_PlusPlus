@@ -77,3 +77,12 @@ void Team::SetIndex(int ind) {
 int Team::GetIndex() {
 	return index;  
 }
+
+void Team::Save() {
+	std::ofstream file1;
+	file1.open(GetName() + ".txt");
+	for (Player* player : TeamLeden) {
+		file1 << player->GetName() << " " << player->GetAge() << " " << player->GetPosition() << "\n";
+	}
+	file1.close();
+}

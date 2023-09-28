@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include "Player.h"
+#include <fstream>
 class Team
 {
 private:
@@ -21,6 +22,7 @@ public:
 	void EvacuatePlayer(Team* team);
 	void SetIndex(int i);
 	int GetIndex();
+	void Save();
 };
 
  

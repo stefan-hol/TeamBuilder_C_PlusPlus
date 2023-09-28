@@ -4,6 +4,7 @@ Handler::Handler() {
 
 	std::ifstream teams;
 	teams.open("TEAMS.txt");
+	int i = 0;
 	while (teams) 
 	{
 		std::string team;
@@ -18,9 +19,10 @@ Handler::Handler() {
 			int age;
 			players >> name >> age >> position;
 			if (name != "") {
-				FFI->MakePlayer(name, age, position, team);
+				FFI->MakePlayer(name, age, position, i);
 			}
 		}
+		i += 1;
 	}
 
 }
@@ -202,11 +204,11 @@ void Handler::Change(FootballFrontierInternational* FFI) {
 void Handler::ChangeItem(FootballFrontierInternational* FFI) {
 	system("CLS");
 	std::cout << "choose a team and then a player.\n";
-	Team* team = FFI->GetTeam(i, stats = false);
+	Team* team = FFI->GetTeam(-1);
 	Player* play = SelectPlayer(team);
 	system("CLS");
 	std::cout << "choose a team to switch to.\n";
-	Team* team2 = FFI->GetTeam(i, stats = true);
+	 	Team* team2 = FFI->GetTeam(-1);
 	team2->AddPlayer(play);
 	team->DeletePlayer(play);
 	system("CLS");
@@ -219,7 +221,7 @@ void Handler::ChangeItem(FootballFrontierInternational* FFI) {
 
 void Handler::DeletePlayer(FootballFrontierInternational* FFI) {
 	system("CLS");
-	Team* team = FFI->GetTeam(i, stats = false);
+	Team* team = FFI->GetTeam(-1);
 	Player* play = SelectPlayer(team);
 	team->DeletePlayer(play,death = true);
 	system("CLS");
@@ -232,8 +234,8 @@ void Handler::DeletePlayer(FootballFrontierInternational* FFI) {
 
 void Handler::DeleteTeam(FootballFrontierInternational* FFI) {
 	system("CLS");
-	Team* team = FFI->GetTeam(death = true, i);
-	if (team == FFI->GetTeam(death = false, i))
+	Team* team = FFI->GetTeam(-1);
+	if (team == FFI->GetTeam(0))
 	{
 		std::cout << "cant delete overig\n";
 		system("pause");
@@ -255,7 +257,7 @@ void Handler::View(FootballFrontierInternational* FFI) {
 		system("CLS");
 		std::cout << "you want the players(1) or a player his stats(2)\n";
 		std::cin >> i;
-		Team* team = FFI->GetTeam(i, stats = false);
+		Team* team = FFI->GetTeam(-1);
 		switch (i)
 		{
 		case 1: {
