@@ -73,6 +73,31 @@ Team* FootballFrontierInternational::GetTeam(int i){
 	return teams[i];
 }
 
+void Handler::WrongInput(bool inputCheck) {
+	system("CLS");
+	if (std::cin.fail())
+	{
+		run = true;
+		std::cout << "wrong input, type an int to go on.\n";
+		int ind;
+		while (run) {
+			run = false;
+			std::cin >> ind;
+			if (std::cin.fail()) {
+				std::cin.clear();
+				std::cin.ignore();
+				run = true;
+			}
+		}
+		run = true;
+		return;
+	}
+	if (inputCheck == false) {
+		std::cout << "wrong input try again.\n";
+		system("pause");
+	}
+}
+
 //Team* FootballFrontierInternational::GetTeam(int retrievingIndex,bool _check) {
 //	system("CLS");
 //	std::cout << "the teams\n";
